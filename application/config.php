@@ -19,7 +19,7 @@ return [
     // 应用调试模式
     'app_debug'              => true,
     // 应用Trace
-    'app_trace'              => false,
+    'app_trace'              => true,
     // 应用模式状态
     'app_status'             => '',
     // 是否支持多模块
@@ -49,7 +49,7 @@ return [
     // 应用类库后缀
     'class_suffix'           => false,
     // 控制器类后缀
-    'controller_suffix'      => false,
+    'controller_suffix'      => true,//开启控制器后缀，默认后缀是controller
 
     // +----------------------------------------------------------------------
     // | 模块设置
@@ -68,7 +68,7 @@ return [
     // 默认的空控制器名
     'empty_controller'       => 'Error',
     // 操作方法后缀
-    'action_suffix'          => '',
+    'action_suffix'          => 'Action',//开启操作方法后缀，设置后缀为Action
     // 自动搜索控制器
     'controller_auto_search' => false,
 
@@ -91,9 +91,9 @@ return [
     // 是否开启路由
     'url_route_on'           => true,
     // 路由使用完整匹配
-    'route_complete_match'   => false,
+    'route_complete_match'   => true,//路由使用完整匹配
     // 路由配置文件（支持配置多个）
-    'route_config_file'      => ['route'],
+    'route_config_file'      => ['route', 'route_admin', 'route_user'],
     // 是否强制使用路由
     'url_route_must'         => false,
     // 域名部署
@@ -101,7 +101,7 @@ return [
     // 域名根，如thinkphp.cn
     'url_domain_root'        => '',
     // 是否自动转换URL中的控制器和操作名
-    'url_convert'            => true,
+    'url_convert'            => false,//不自动转换，url访问严格区分大小写
     // 默认的访问控制器层
     'url_controller_layer'   => 'controller',
     // 表单请求类型伪装变量
@@ -189,7 +189,7 @@ return [
         // 缓存保存目录
         'path'   => CACHE_PATH,
         // 缓存前缀
-        'prefix' => '',
+        'prefix' => 'yixin_c_',
         // 缓存有效期 0表示永久缓存
         'expire' => 0,
     ],
