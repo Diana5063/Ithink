@@ -15,4 +15,14 @@ class IndexController
     {
         return 'User index';
     }
+
+    public function loginAction()
+    {
+        return 'User login';
+    }
+
+    public function logoutAction()
+    {
+        return 'User logout';
+    }
 }
