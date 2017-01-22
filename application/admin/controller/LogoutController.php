@@ -11,12 +11,13 @@ namespace app\admin\controller;
 
 
 use think\Controller;
+use think\Cookie;
 
 class LogoutController extends Controller
 {
     public function indexAction()
     {
-        setcookie('admin_id', 1, -1, '/', 'yixin.dev.com');
+        Cookie::delete('admin_id');//退出时删除当前cookie
         $this->redirect('/?s=admin/login');
     }
 }

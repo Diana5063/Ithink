@@ -10,12 +10,14 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\Cookie;
 
 class IndexController extends Controller
 {
     public function indexAction()
     {
-        if (!isset($_COOKIE['admin_id']) || (int)$_COOKIE['admin_id'] !== 1) {
+        $admin_id = (int)Cookie::get('admin_id');
+        if ($admin_id !== 1) {
             $this->redirect('/?s=admin/login');
         }
         return $this->fetch('index', ['arr' => ['Yixin', 'Chen', 'Diana']]);

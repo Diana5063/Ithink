@@ -10,12 +10,13 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\Cookie;
 
 class LoginController extends Controller
 {
     public function indexAction()
     {
-        setcookie('admin_id', 1, -1, '/', 'yixin.dev.com');
+        Cookie::delete('admin_id');
         return $this->fetch('index');
     }
 
@@ -23,7 +24,7 @@ class LoginController extends Controller
     {
         $admin_id = (isset($_POST['admin_id']) && (int)$_POST['admin_id'] === 1) ? (int)$_POST['admin_id'] : 0;
         if ($admin_id === 1) {
-            setcookie('admin_id', $admin_id, time() + 3600, '/', 'yixin.dev.com');
+            Cookie::set('admin_id', $admin_id);
             $this->redirect('/?s=admin/index');
         }
         $this->redirect('/?s=admin/login');
