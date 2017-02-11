@@ -1,12 +1,8 @@
 <?php
 // +----------------------------------------------------------------------
-// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// | Copyright (c) 2016~2016 http://yixin510.online All rights reserved.
 // +----------------------------------------------------------------------
-// | Copyright (c) 2006~2016 http://thinkphp.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: Dianachen <937837863@qq.com>
 // +----------------------------------------------------------------------
 
 return [
@@ -93,7 +89,7 @@ return [
     // 路由使用完整匹配
     'route_complete_match'   => true,//路由使用完整匹配
     // 路由配置文件（支持配置多个）
-    'route_config_file'      => ['route', 'route_admin', 'route_user'],
+    'route_config_file'      => ['route'],
     // 是否强制使用路由
     'url_route_must'         => false,
     // 域名部署
@@ -236,4 +232,24 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    // +----------------------------------------------------------------------
+    // | 登录验证码设置
+    // +----------------------------------------------------------------------
+    /*'captcha' => [
+        // 验证码字符集合
+        'codeSet' => '2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY',
+        // 验证码字体大小(px)
+        'fontSize' => 25,
+        // 是否画混淆曲线
+        'useCurve' => true,
+        // 验证码图片高度
+        'imageH' => 30,
+        // 验证码图片宽度
+        'imageW' => 100,
+        // 验证码位数
+        'length' => 5,
+        // 验证成功后是否重置
+        'reset' => true
+    ]*/
 ];

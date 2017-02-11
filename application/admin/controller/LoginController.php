@@ -9,8 +9,10 @@
 
 namespace app\admin\controller;
 
+use think\captcha\Captcha;
 use think\Controller;
 use think\Cookie;
+use think\Config;
 
 class LoginController extends Controller
 {
@@ -23,10 +25,27 @@ class LoginController extends Controller
     public function doLoginAction()
     {
         $admin_id = (isset($_POST['admin_id']) && (int)$_POST['admin_id'] === 1) ? (int)$_POST['admin_id'] : 0;
+        $captcha = isset($_POST['captcha']) ? $_POST['captcha'] : '';
         if ($admin_id === 1) {
             Cookie::set('admin_id', $admin_id);
             $this->redirect('/?s=admin/index');
         }
         $this->redirect('/?s=admin/login');
+    }
+
+    public function captchaAction()
+    {
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        $captcha = new Captcha();
+        return $captcha->entry($id);
+    }
+
+    /**
+     * 当前环境php安装信息
+     * @return mixed
+     */
+    public function phpinfoAction()
+    {
+        return $this->fetch('phpinfo');
     }
 }
