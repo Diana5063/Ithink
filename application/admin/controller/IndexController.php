@@ -18,7 +18,7 @@ class IndexController extends Controller
     {
         $admin_id = (int)Cookie::get('admin_id');
         if ($admin_id !== 1) {
-            $this->redirect('/?s=admin/login');
+            $this->redirect('/admin/login');
         }
         return $this->fetch('index', ['arr' => ['Yixin', 'Chen', 'Diana']]);
     }

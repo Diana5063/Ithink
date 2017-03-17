@@ -4,7 +4,7 @@
     </head>
 
     <body>
-        <form action="?s=admin/login/doLogin" method="post">
+        <form action="/admin/login/doLogin" method="post">
             <table>
                 <tr>
                     <td></td>
@@ -28,7 +28,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <img src="{:captcha_src()}"
+                            <img class="captcha" src="{:captcha_src()}"
                                  alt="点击刷新"
                                  onclick="this.src='{:captcha_src()}'"/>
                         </div>

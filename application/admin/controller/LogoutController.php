@@ -18,6 +18,6 @@ class LogoutController extends Controller
     public function indexAction()
     {
         Cookie::delete('admin_id');//退出时删除当前cookie
-        $this->redirect('/?s=admin/login');
+        $this->redirect('/admin/login');
     }
 }

@@ -28,16 +28,9 @@ class LoginController extends Controller
         $captcha = isset($_POST['captcha']) ? $_POST['captcha'] : '';
         if ($admin_id === 1) {
             Cookie::set('admin_id', $admin_id);
-            $this->redirect('/?s=admin/index');
+            $this->redirect('/admin/index');
         }
-        $this->redirect('/?s=admin/login');
-    }
-
-    public function captchaAction()
-    {
-        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-        $captcha = new Captcha();
-        return $captcha->entry($id);
+        $this->redirect('/admin/login');
     }
 
     /**
