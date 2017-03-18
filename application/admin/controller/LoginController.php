@@ -39,6 +39,7 @@ class LoginController extends Controller
      */
     public function phpinfoAction()
     {
-        return $this->fetch('phpinfo');
+        echo phpinfo();
+        return false;
     }
 }

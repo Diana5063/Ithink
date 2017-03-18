@@ -1,22 +1,16 @@
 <html>
-    <head>
-        <title>管理员登录</title>
-    </head>
-
+    <include file="../common/header.html"></include>
     <body>
+        <h2 class="login-title">管理员登录</h2>
         <form action="/admin/login/doLogin" method="post">
-            <table>
-                <tr>
-                    <td></td>
-                    <td>管理员登录</td>
-                </tr>
+            <table class="login">
                 <tr>
                     <td><label>用户名</label>：</td>
-                    <td><input type="text" name="admin_id" placeholder="请输入管理员ID"></td>
+                    <td><input type="text" name="nickname" placeholder="请输入管理员账号"></td>
                 </tr>
                 <tr>
                     <td><label>密码</label>：</td>
-                    <td><input type="password" name="adm_password" placeholder="请输入密码"></td>
+                    <td><input type="password" name="adm_password" placeholder="请输入管理员密码"></td>
                 </tr>
                 <tr>
                     <td><label>验证码</label>：</td>
@@ -41,4 +35,5 @@
             </table>
         </form>
     </body>
+    <include file="../common/footer.html"></include>
 </html>
