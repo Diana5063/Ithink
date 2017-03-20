@@ -3,3 +3,35 @@ h2.login-title{
     font-weight: bold;
     text-align: center;
 }
+
+table.login{
+    margin: auto;
+    padding-top: 10px;
+}
+
+div.login{
+    padding-top: 200px;
+}
+
+.input-width01{
+    width: 240px;
+    height: 30px;
+}
+
+.input-width02{
+    width: 150px;
+    height: 30px;
+}
+
+.captcha-click{
+    color: blue;
+    padding-left: 10px;
+}
+
+.login-submit{
+    border: 1px;
+    width: 81px;
+    height: 30px;
+    color: blue;
+    background: cornflowerblue;
+}

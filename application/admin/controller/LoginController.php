@@ -24,8 +24,23 @@ class LoginController extends Controller
 
     public function doLoginAction()
     {
-        $admin_id = (isset($_POST['admin_id']) && (int)$_POST['admin_id'] === 1) ? (int)$_POST['admin_id'] : 0;
-        $captcha = isset($_POST['captcha']) ? $_POST['captcha'] : '';
+        //var_dump($_POST);exit;
+        if (isset($_POST['username'])) {
+            $username = trim($_POST['username']);
+        } else {
+            $username = '';
+        }
+        if (isset($_POST['password'])) {
+            $password = trim($_POST['password']);
+        } else {
+            $password = '';
+        }
+        if (isset($_POST['captcha'])) {
+            $captcha = trim($_POST['captcha']);
+        } else {
+            $captcha = '';
+        }
+
         if ($admin_id === 1) {
             Cookie::set('admin_id', $admin_id);
             $this->redirect('/admin/index');

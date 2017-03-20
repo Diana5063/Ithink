@@ -1,39 +1,60 @@
 <html>
-    <include file="../common/header.html"></include>
+    {include file="common/header"}
     <body>
-        <h2 class="login-title">管理员登录</h2>
-        <form action="/admin/login/doLogin" method="post">
-            <table class="login">
-                <tr>
-                    <td><label>用户名</label>：</td>
-                    <td><input type="text" name="nickname" placeholder="请输入管理员账号"></td>
-                </tr>
-                <tr>
-                    <td><label>密码</label>：</td>
-                    <td><input type="password" name="adm_password" placeholder="请输入管理员密码"></td>
-                </tr>
-                <tr>
-                    <td><label>验证码</label>：</td>
-                    <td>
-                        <input type="text" name="captcha" placeholder="请输入验证码">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <div>
-                            <img class="captcha" src="{:captcha_src()}"
-                                 alt="点击刷新"
-                                 onclick="this.src='{:captcha_src()}'"/>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" name="登录"></td>
-                </tr>
-            </table>
-        </form>
+        <div class="login">
+            <h2 class="login-title">管理员登录</h2>
+            <form action="/admin/login/doLogin" method="post">
+                <table class="login">
+                    <tr>
+                        <td><label>用户名</label>：</td>
+                        <td>
+                            <input type="text"
+                                   name="username"
+                                   placeholder="请输入管理员账号"
+                                   class="input-width01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>密码</label>：</td>
+                        <td>
+                            <input type="password"
+                                   name="password"
+                                   placeholder="请输入管理员密码"
+                                   class="input-width01"></td>
+                    </tr>
+                    <tr>
+                        <td><label>验证码</label>：</td>
+                        <td>
+                            <input type="text"
+                                   name="captcha"
+                                   placeholder="请输入验证码"
+                                   class="input-width02">
+                            <a href="#" class="captcha-click" onclick="freshCaptcha()">点击刷新</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div>
+                                <img id="captcha-img" src="{:captcha_src()}"
+                                     alt="点击刷新"
+                                     onclick="freshCaptcha()"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit"
+                                   name="submit"
+                                   value="登录"
+                                   class="login-submit">
+                            <a href="#">忘记密码？</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
-    <include file="../common/footer.html"></include>
+    {include file="common/footer"}
 </html>
