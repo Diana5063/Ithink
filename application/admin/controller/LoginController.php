@@ -26,9 +26,9 @@ class LoginController extends Controller
     {
         //var_dump($_POST);exit;
         if (isset($_POST['username'])) {
-            $username = trim($_POST['username']);
+            $nickname = trim($_POST['username']);
         } else {
-            $username = '';
+            $nickname = '';
         }
         if (isset($_POST['password'])) {
             $password = trim($_POST['password']);
@@ -40,11 +40,13 @@ class LoginController extends Controller
         } else {
             $captcha = '';
         }
-
-        if ($admin_id === 1) {
-            Cookie::set('admin_id', $admin_id);
-            $this->redirect('/admin/index');
+        if (!captcha_check($captcha)) {
+            //验证失败
+            echo 'error';exit;
         }
+        return false;
+        Cookie::set('nickname', $nickname);
+        $this->redirect('/admin/index');
         $this->redirect('/admin/login');
     }
 
