@@ -9,24 +9,33 @@
 
 namespace app\admin\controller;
 
-use think\captcha\Captcha;
+use app\admin\model\AdminInfo;
+use app\admin\model\AdminLog;
 use think\Controller;
-use think\Cookie;
-use think\Config;
+use think\Request;
+use think\Session;
 
 class LoginController extends Controller
 {
+    /**
+     * 登录页
+     * @return mixed
+     */
     public function indexAction()
     {
-        Cookie::delete('admin_id');
+        if (Session::get('admin_uid') && (int)Session::get('admin_uid') > 0) {
+            $this->redirect('/admin/index');
+        }
         return $this->fetch('index');
     }
 
+    /**
+     * 登录操作
+     */
     public function doLoginAction()
     {
-        //var_dump($_POST);exit;
-        if (isset($_POST['username'])) {
-            $nickname = trim($_POST['username']);
+        if (isset($_POST['nick_name'])) {
+            $nickname = trim($_POST['nick_name']);
         } else {
             $nickname = '';
         }
@@ -40,14 +49,55 @@ class LoginController extends Controller
         } else {
             $captcha = '';
         }
+
+        //检查验证码
         if (!captcha_check($captcha)) {
-            //验证失败
-            echo 'error';exit;
+            //验证码错误
+            return \CommonBase::error('captcha_error', '验证码错误');
         }
-        return false;
-        Cookie::set('nickname', $nickname);
+
+        $admin = AdminInfo::get(['nick_name' => $nickname]);
+        if (!$admin) {
+            return \CommonBase::error('admin_not_found', '账号不存在');
+        }
+        $admin = $admin->toArray();
+
+        //验证密码
+        $login_password = \CommonBase::encryptPassword($password, $admin['salt']);
+        if ($login_password !== $admin['password']) {
+            return \CommonBase::error('password_error', '密码错误');
+        }
+
+        $time = date('Y-m-d H:i:s');//当前服务器时间
+        //登录成功后更新最后登录时间
+        AdminInfo::update(['last_login_time' => $time], ['admin_uid' => $admin['admin_uid']]);
+
+        //将登录操作写入日志
+        AdminLog::create([
+            'create_time' => $time,
+            'admin_uid' => $admin['admin_uid'],
+            'ip' => Request::instance()->ip(),
+            'operation_short' => 'login',
+            'operation_long' => '登录'
+        ]);
+
+        //登录信息存入session
+        Session::set('admin_uid', $admin['admin_uid']);
+        Session::set('nick_name', $admin['nick_name']);
+
         $this->redirect('/admin/index');
-        $this->redirect('/admin/login');
+        return false;
+    }
+
+    /**
+     * 退出登录
+     * @return mixed
+     */
+    public function logoutAction()
+    {
+        //清除登录信息并退出到登录页面
+        Session::clear('yx_adm_');
+        return $this->fetch('/login/index');
     }
 
     /**

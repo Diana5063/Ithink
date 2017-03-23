@@ -9,7 +9,7 @@
                         <td><label>用户名</label>：</td>
                         <td>
                             <input type="text"
-                                   name="username"
+                                   name="nick_name"
                                    placeholder="请输入管理员账号"
                                    class="input-width01">
                         </td>
@@ -29,7 +29,9 @@
                                    name="captcha"
                                    placeholder="验证码不区分大小写"
                                    class="input-width02">
-                            <a href="#" class="captcha-click" onclick="freshCaptcha()">点击刷新</a>
+                            <a href="#" class="captcha-click"
+                               title="点击刷新验证码"
+                               onclick="freshCaptcha()">点击刷新</a>
                         </td>
                     </tr>
                     <tr>
@@ -38,6 +40,7 @@
                             <div>
                                 <img id="captcha-img" src="{:captcha_src()}"
                                      alt="点击刷新"
+                                     title="点击刷新验证码"
                                      onclick="freshCaptcha()"/>
                             </div>
                         </td>
@@ -49,7 +52,7 @@
                                    name="submit"
                                    value="登录"
                                    class="login-submit">
-                            <a href="#">忘记密码？</a>
+                            <a href="#" title="点我重置密码">忘记密码？</a>
                         </td>
                     </tr>
                 </table>

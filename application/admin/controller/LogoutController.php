@@ -11,13 +11,14 @@ namespace app\admin\controller;
 
 
 use think\Controller;
-use think\Cookie;
+use think\Session;
 
 class LogoutController extends Controller
 {
     public function indexAction()
     {
-        Cookie::delete('admin_id');//退出时删除当前cookie
+        //清除登录信息并退出到登录页面
+        Session::clear('yx_adm_');
         $this->redirect('/admin/login');
     }
 }
