@@ -1,0 +1,35 @@
+<div>
+    <h2 class="login-title">{$group_info.group_id ? '修改' : '新增'}管理员组</h2>
+    <form action="/admin/admin_group/update" method="post">
+        <input type="hidden"
+               name="group_id"
+               value="{$group_info.group_id ? $group_info.group_id : 0}">
+        <table class="login">
+            <tr>
+                <td><label>组名称</label>：</td>
+                <td>
+                    <input type="text"
+                           name="group_name"
+                           class="input-width01">
+                </td>
+            </tr>
+            <tr>
+                <td><label>密码</label>：</td>
+                <td>
+                    <input type="password"
+                           name="password"
+                           placeholder="请输入管理员密码"
+                           class="input-width01"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit"
+                           name="submit"
+                           value="提交"
+                           class="login-submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

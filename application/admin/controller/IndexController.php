@@ -14,7 +14,10 @@ use think\Session;
 
 class IndexController extends Controller
 {
-    //设置first方法为所有方法的前置方法
+    /**
+     * 设置first方法为所有方法的前置方法
+     * @var array
+     */
     protected $beforeActionList = ['first'];
 
     /**
@@ -36,7 +39,6 @@ class IndexController extends Controller
     public function indexAction()
     {
         return $this->fetch('index', [
-            'nick_name' => Session::get('nick_name'),
             'arr' => ['Yixin', 'Chen', 'Diana']
         ]);
     }
