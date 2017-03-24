@@ -14,7 +14,8 @@ use think\Session;
 
 class IndexController extends Controller
 {
-    protected $beforeActionList = ['first'];//设置first方法为所有方法的前置方法
+    //设置first方法为所有方法的前置方法
+    protected $beforeActionList = ['first'];
 
     /**
      * 检查管理员是否登录，没有登录时跳转到登录页
@@ -34,6 +35,9 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        return $this->fetch('index', ['arr' => ['Yixin', 'Chen', 'Diana']]);
+        return $this->fetch('index', [
+            'nick_name' => Session::get('nick_name'),
+            'arr' => ['Yixin', 'Chen', 'Diana']
+        ]);
     }
 }

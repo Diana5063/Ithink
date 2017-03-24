@@ -1,13 +1,6 @@
-<html>
-
-<body>
-    <div>
-        {foreach name="arr" item="a"}
-            {$a}|
-        {/foreach}
-        <br>
-        <a href="/admin/logout">退出登录</a>
-    </div>
-</body>
-
-</html>
+{include file="common/admin"}
+<div>
+    {foreach name="arr" item="a"}
+        {$a}|
+    {/foreach}
+</div>

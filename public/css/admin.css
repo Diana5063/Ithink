@@ -1,15 +1,15 @@
-h2.login-title{
+.login-title{
     color: #607D8B;
     font-weight: bold;
     text-align: center;
 }
 
-table.login{
+.login{
     margin: auto;
     padding-top: 10px;
 }
 
-div.login{
+.login{
     padding-top: 200px;
 }
 
@@ -34,4 +34,24 @@ div.login{
     height: 30px;
     color: blue;
     background: cornflowerblue;
+}
+
+.admin-info{
+    padding-top: 10px;
+}
+
+.admin-nickname {
+    color: turquoise;
+    margin-right: 10px;
+    margin-left: 1050px;
+}
+
+.admin-title{
+    color: deepskyblue;
+    font-size: 30px;
+}
+
+.logout {
+    color: gray;
+    font-size: small;
 }
