@@ -1,4 +1,4 @@
-.login-title{
+h2.login-title{
     color: #607D8B;
     font-weight: bold;
     text-align: center;
@@ -9,7 +9,7 @@
     padding-top: 10px;
 }
 
-.login{
+div.login{
     padding-top: 200px;
 }
 

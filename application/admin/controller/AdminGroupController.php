@@ -34,6 +34,34 @@ class AdminGroupController extends Controller
     }
 
     /**
+     * 管理员组列表
+     *
+     * 功能要求：分页、组名关键字搜索
+     *
+     * 参数：
+     * rpp |int |每页数量
+     * group_name |string |组名关键字
+     *
+     * @return mixed
+     */
+    public function indexAction()
+    {
+        $rpp = isset($_POST['rpp']) ? (int)$_POST['rpp'] : 10;//每页数量，默认为10条
+        $order = ['group_id' => 'desc'];
+        $where = [];
+        if (isset($_POST['group_name']) && trim($_POST['group_name']) !== '') {
+            $where['group_name like ?'] = '%' . trim($_POST['group_name']) . '%';
+        }
+
+        $total_num = AdminGroup::where($where)->count('*');
+        $group_list = AdminGroup::where($where)->order($order)->paginate($rpp, $total_num);
+        return $this->fetch('index', [
+            'group_list' => $group_list->toArray(),
+            'paginator' => $group_list->render()
+        ]);
+    }
+
+    /**
      * 获取管理员信息并显示到编辑模板上
      * @return mixed|\think\Response
      */
@@ -57,7 +85,4 @@ class AdminGroupController extends Controller
     {
         return false;
     }
-
-    public function listAction()
-    {}
 }

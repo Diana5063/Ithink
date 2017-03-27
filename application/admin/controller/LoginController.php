@@ -90,21 +90,10 @@ class LoginController extends Controller
     }
 
     /**
-     * 退出登录
-     * @return mixed
-     */
-    public function logoutAction()
-    {
-        //清除登录信息并退出到登录页面
-        Session::clear('yx_adm_');
-        return $this->fetch('/login/index');
-    }
-
-    /**
      * 当前环境php安装信息
      * @return mixed
      */
-    public function phpinfoAction()
+    public function phpInfoAction()
     {
         echo phpinfo();
         return false;

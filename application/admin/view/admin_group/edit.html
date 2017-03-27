@@ -1,6 +1,6 @@
 <div>
     <h2 class="login-title">{$group_info.group_id ? '修改' : '新增'}管理员组</h2>
-    <form action="/admin/admin_group/update" method="post">
+    <form action="/admin/group/update" method="post">
         <input type="hidden"
                name="group_id"
                value="{$group_info.group_id ? $group_info.group_id : 0}">
@@ -10,16 +10,26 @@
                 <td>
                     <input type="text"
                            name="group_name"
-                           class="input-width01">
+                           class="input-width01"
+                           value="{$group_info.group_name ? $group_info.group_name : ''}">
                 </td>
             </tr>
             <tr>
-                <td><label>密码</label>：</td>
+                <td><label>组图标</label>：</td>
                 <td>
-                    <input type="password"
-                           name="password"
-                           placeholder="请输入管理员密码"
-                           class="input-width01"></td>
+                    <input type="text"
+                           name="icon"
+                           value="{$group_info.icon ? $group_info.icon : ''}">
+                </td>
+            </tr>
+            <tr>
+                <td><label>组权限</label>：</td>
+                <td>
+                    <input type="text"
+                           name="group_permission"
+                           class="input-width01"
+                           value="">
+                </td>
             </tr>
             <tr>
                 <td></td>

@@ -89,9 +89,9 @@ return [
     // 路由使用完整匹配
     'route_complete_match'   => true,//路由使用完整匹配
     // 路由配置文件（支持配置多个）
-    'route_config_file'      => ['route'],
+    'route_config_file'      => ['route', 'route_admin', 'route_user'],
     // 是否强制使用路由
-    'url_route_must'         => false,
+    'url_route_must'         => true,
     // 域名部署
     'url_domain_deploy'      => false,
     // 域名根，如thinkphp.cn
