@@ -1,9 +1,7 @@
 <div>
     <h2 class="login-title">{$group_info.group_id ? '修改' : '新增'}管理员组</h2>
-    <form action="/admin/group/update" method="post">
-        <input type="hidden"
-               name="group_id"
-               value="{$group_info.group_id ? $group_info.group_id : 0}">
+    <form action="/admin/group/update?group_id={$group_info.group_id ? $group_info.group_id : 0}"
+          method="post">
         <table class="login">
             <tr>
                 <td><label>组名称</label>：</td>
