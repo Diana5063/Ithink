@@ -251,5 +251,7 @@ return [
         'length' => 5,
         // 验证成功后是否重置
         'reset' => true
-    ]
+    ],
+
+    'domain' => 'yixin.dev.com'
 ];

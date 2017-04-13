@@ -15,9 +15,19 @@
             <tr>
                 <td><label>组图标</label>：</td>
                 <td>
-                    <input type="text"
+                    <img id="icon1"
+                         src="{$group_info.icon ? $group_info.icon : ''}"
+                         class="group-icon">
+                    <input id="icon-image" type="file" name="image">
+                    <input type="hidden"
+                           id="icon2"
                            name="icon"
                            value="{$group_info.icon ? $group_info.icon : ''}">
+                    <br>
+                    <input type="button"
+                           name="upload"
+                           onclick="doUpload()"
+                           value="上传">
                 </td>
             </tr>
             <tr>

@@ -51,7 +51,12 @@ div.login{
     font-size: 30px;
 }
 
-.logout {
+.logout{
     color: gray;
     font-size: small;
+}
+
+.group-icon{
+    width: 70px;
+    height: 70px;
 }

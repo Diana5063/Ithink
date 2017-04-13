@@ -46,4 +46,19 @@ class CommonBase
         }
         return $str;
     }
+
+    /**
+     * 获取图片存储根目录
+     * @return string
+     */
+    public static function getUploadUrl()
+    {
+        $domain = \think\Config::get('domain');
+        return $domain . DS . 'upload' . DS;
+    }
+
+    public static function getUploadPath()
+    {
+        return ROOT_PATH . 'public' . DS . 'upload';
+    }
 }
