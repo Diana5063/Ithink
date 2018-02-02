@@ -54,11 +54,11 @@ class CommonBase
     public static function getUploadUrl()
     {
         $domain = \think\Config::get('domain');
-        return $domain . DS . 'upload' . DS;
+        return $domain . DS . 'uploads' . DS;
     }
 
     public static function getUploadPath()
     {
-        return ROOT_PATH . 'public' . DS . 'upload';
+        return ROOT_PATH . 'public' . DS . 'uploads';
     }
 }

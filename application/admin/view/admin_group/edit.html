@@ -1,5 +1,5 @@
 <div>
-    <h2 class="login-title">{$group_info.group_id ? '修改' : '新增'}管理员组</h2>
+    <h2 class="login-title">{$group_info.group_id ? '修改' : '新增'}管理员组 | <a href="/admin/group">返回管理员列表</a></h2>
     <form action="/admin/group/update?group_id={$group_info.group_id ? $group_info.group_id : 0}"
           method="post">
         <table class="login">
@@ -18,16 +18,14 @@
                     <img id="icon1"
                          src="{$group_info.icon ? $group_info.icon : ''}"
                          class="group-icon">
-                    <input id="icon-image" type="file" name="image">
+                    <a href="javascript:;" class="file">
+                        <input type="file" name="image" id="icon-image">上传 70*70
+                    </a>
                     <input type="hidden"
                            id="icon2"
                            name="icon"
                            value="{$group_info.icon ? $group_info.icon : ''}">
-                    <br>
-                    <input type="button"
-                           name="upload"
-                           onclick="doUpload()"
-                           value="上传">
+
                 </td>
             </tr>
             <tr>

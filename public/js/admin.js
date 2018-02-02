@@ -6,7 +6,3 @@ function freshCaptcha() {
     //刷新验证码
     document.getElementById('captcha-img').src = document.getElementById('captcha-img').src + '';
 }
-
-function doUpload() {
-    
-}
